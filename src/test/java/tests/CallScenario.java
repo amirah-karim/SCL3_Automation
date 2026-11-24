@@ -7,12 +7,15 @@ public class CallScenario extends BaseTest_TETRA{
 
     @Test (priority = 1)
     public void openAppsBothDevice(){
-        //open SCL3 apps
+        //open SCL3 apps`   1
         //open Sepura CC
         openSepuraCC_SCL3();
 
         //change to TMO mode
         changeNetwork_SCL3();
+
+        //Go to Homescreen
+        waitForClickable(AppiumBy.id("com.sepura.pmrui:id/nav_home"),20).click();
 
         sleep(10000);
 
@@ -32,7 +35,7 @@ public class CallScenario extends BaseTest_TETRA{
         sleep(5000);
     }
 
-    @Test (priority = 3)
+//    @Test (priority = 4)
     public void individualCall_SCL3(){
         //Go to Phonebook
         waitForClickable(AppiumBy.accessibilityId("Phonebook"),20).click();
@@ -62,8 +65,31 @@ public class CallScenario extends BaseTest_TETRA{
         //Tap Call button
         waitForClickable(AppiumBy.id("com.sepura.pmrui:id/iv_dialler_call_button"),20).click();
 
-        sleep(50000);
+        sleep(3000);
     }
+
+//    @Test (priority = 5)
+    public void AnswerCall_STM(){
+
+        answerCall();
+
+
+
+    }
+
+
+    @Test (priority = 3)
+    public void AnswerCall_SCL3(){
+
+        //Tap Answer button
+        waitForClickable(AppiumBy.id("com.sepura.pmrui:id/home_call_button"),20).click();
+
+        sleep(1000);
+
+        //Tap End call button
+        waitForClickable(AppiumBy.id("com.sepura.pmrui:id/home_hangup_button"),20).click();
+    }
+
 
     @Test (priority = 2)
     public void IndividualCall_STM(){
@@ -92,7 +118,7 @@ public class CallScenario extends BaseTest_TETRA{
 
         waitForClickable2(AppiumBy.id("my.com.questrans.stm:id/btnCall"),20).click();
 
-        sleep(50000);
+        sleep(3000);
     }
 
 
