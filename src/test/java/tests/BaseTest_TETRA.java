@@ -241,4 +241,30 @@ public class BaseTest_TETRA {
         driver2.perform(Collections.singletonList(swipe));
     }
 
+    public void endCall() {
+
+        PointerInput finger =
+                new PointerInput(PointerInput.Kind.TOUCH, "finger");
+
+        Sequence swipe = new Sequence(finger, 1);
+
+        swipe.addAction(finger.createPointerMove(
+                Duration.ZERO,
+                PointerInput.Origin.viewport(),
+                482, 2077));
+
+        swipe.addAction(finger.createPointerDown(
+                PointerInput.MouseButton.LEFT.asArg()));
+
+        swipe.addAction(finger.createPointerMove(
+                Duration.ofMillis(1000),
+                PointerInput.Origin.viewport(),
+                715, 2077));
+
+        swipe.addAction(finger.createPointerUp(
+                PointerInput.MouseButton.LEFT.asArg()));
+
+        driver2.perform(Collections.singletonList(swipe));
+    }
+
 }

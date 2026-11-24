@@ -1,6 +1,8 @@
 package tests;
 
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import org.testng.annotations.Test;
 
 public class CallScenario extends BaseTest_TETRA{
@@ -86,8 +88,7 @@ public class CallScenario extends BaseTest_TETRA{
 
         sleep(1000);
 
-        //Tap End call button
-        waitForClickable(AppiumBy.id("com.sepura.pmrui:id/home_hangup_button"),20).click();
+        endCall();
     }
 
 
